@@ -23,7 +23,7 @@ RUN apt-get install -y libglib2.0-dev
 COPY . /app
 
 # Install Python dependencies
-RUN pip install --root-user-action --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose Flask port
 EXPOSE 5555
