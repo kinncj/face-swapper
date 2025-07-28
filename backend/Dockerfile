@@ -1,5 +1,5 @@
 # Backend Dockerfile for Face Swap Web
-FROM python:3.13.5-slim-bullseye
+FROM python:3.13.5-bullseye
 
 # Ensure all packages are up-to-date to reduce vulnerabilities
 RUN apt-get update && \
