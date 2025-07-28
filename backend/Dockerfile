@@ -17,7 +17,7 @@ RUN apt-get update && \
     libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y libglib2.0-0=2.24.0-0ubuntu4 && apt-get install -y libglib2.0-dev
+RUN apt-get install -y libglib2.0-dev
 
 # Copy backend code and docs
 COPY . /app
