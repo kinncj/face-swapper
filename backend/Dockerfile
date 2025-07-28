@@ -17,11 +17,13 @@ RUN apt-get update && \
     libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install -y --no-install-recommends libglib2.0-0
+
 # Copy backend code and docs
 COPY . /app
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --root-user-action --no-cache-dir -r requirements.txt
 
 # Expose Flask port
 EXPOSE 5555
