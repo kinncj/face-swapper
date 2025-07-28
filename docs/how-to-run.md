@@ -47,9 +47,23 @@
 
 - See Makefile for automated commands.
 
+
 ## API Documentation
 - [Swagger UI](http://localhost:5555/swagger) (when backend is running)
 - [OpenAPI Spec](../backend/docs/openapi.yaml)
+
+## Custom Backend URL
+The frontend uses the `VITE_BACKEND_URL` environment variable to set the backend API URL. Default is `http://localhost:5555`.
+
+To use a different backend URL, create a `.env` file in the project root:
+```env
+VITE_BACKEND_URL=https://your-backend-url.com
+```
+Or set it in your shell before running:
+```bash
+export VITE_BACKEND_URL=https://your-backend-url.com
+npm run dev
+```
 
 ## Related Docs
 - [Architecture](architecture.md)

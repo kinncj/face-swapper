@@ -6,6 +6,9 @@
  * UI is modular and uses modern dark design.
  */
 import React, { useState } from 'react';
+
+// Use BACKEND_URL from environment, fallback to localhost
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5555';
 import './App.css';
 import { Group, Notification } from '@mantine/core';
 import FaceCanvas from './components/FaceCanvas';
@@ -40,7 +43,7 @@ function App() {
       setTargetImage(url);
       const formData = new FormData();
       formData.append('image', file);
-      fetch('http://localhost:5555/detect-faces', {
+      fetch(`${BACKEND_URL}/detect-faces`, {
         method: 'POST',
         body: formData,
       })
@@ -107,7 +110,7 @@ function App() {
       formData.append('source[]', replacements[faceIdx].file);
       formData.append('face_index', faceIdx);
       try {
-        const res = await fetch('http://localhost:5555/swap', {
+        const res = await fetch(`${BACKEND_URL}/swap`, {
           method: 'POST',
           body: formData,
         });

@@ -53,13 +53,28 @@ Photorealistic, multi-face swap web app powered by React, Vite, Flask, and Insig
 - [License](docs/license.md)
 - [OpenAPI Spec](backend/docs/openapi.yaml)
 
+
 ## 🔗 API Reference
 - **Swagger UI:** [http://localhost:5555/swagger](http://localhost:5555/swagger) (when backend is running)
 - **OpenAPI Spec:** [backend/docs/openapi.yaml](backend/docs/openapi.yaml)
 
+## 🌐 Configuring Backend URL
+The frontend uses an environment variable called `VITE_BACKEND_URL` to set the backend API URL. By default, it uses `http://localhost:5555`.
+
+### How to set a custom backend URL
+Create a `.env` file in the project root and add:
+```env
+VITE_BACKEND_URL=https://your-backend-url.com
+```
+Or set it in your shell before running the dev server:
+```bash
+export VITE_BACKEND_URL=https://your-backend-url.com
+npm run dev
+```
+
 ### Example: Detect Faces
 ```bash
-curl -X POST -F "image=@target.jpg" http://localhost:5555/detect-faces
+curl -X POST -F "image=@target.jpg" $VITE_BACKEND_URL/detect-faces
 ```
 
 ### Example: Swap Faces
@@ -70,7 +85,7 @@ curl -X POST \
   -F "source[]=@face2.jpg" \
   -F "face_index=0" \
   -F "face_index=1" \
-  http://localhost:5555/swap --output swapped.jpg
+  $VITE_BACKEND_URL/swap --output swapped.jpg
 ```
 
 ## 🖼️ Diagrams

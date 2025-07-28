@@ -1,3 +1,4 @@
+
 # Frontend Code Documentation
 
 ## App.jsx
@@ -6,6 +7,13 @@ Main React component. Manages state for image upload, face detection, replacemen
 - `handleTargetUpload(file)`: Handles target image upload and triggers face detection.
 - `handleReplacementUpload(faceIdx, e)`: Handles uploading a replacement face for a detected face.
 - `handleSwapSubmit(e)`: Handles submitting the swap request for all selected faces.
+
+### Backend URL Configuration
+- The frontend uses `VITE_BACKEND_URL` (default: `http://localhost:5555`) for all backend API requests.
+- To use a different backend, set `VITE_BACKEND_URL` in a `.env` file or your shell:
+  ```env
+  VITE_BACKEND_URL=https://your-backend-url.com
+  ```
 
 ## Components
 - **FaceCanvas.jsx**: Renders the target image and overlays bounding boxes for detected faces.
