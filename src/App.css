@@ -1,0 +1,74 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #232946 0%, #16161a 100%);
+  margin: 0;
+  padding: 0;
+  color: #eaeaea;
+}
+
+.app-container {
+  max-width: 540px;
+  margin: 48px auto;
+  padding: 32px 24px;
+  background: #232946;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  border: 1px solid #2a2a2e;
+}
+
+.card {
+  background: #16161a;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+  border: 1px solid #232946;
+  padding: 2rem 1.2rem;
+  min-width: 180px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eaeaea;
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #eaeaea;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.button {
+  background: linear-gradient(90deg, #eebc1d 0%, #ff6a3d 100%);
+  color: #232946;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 1.2rem;
+  padding: 0.9rem 2.2rem;
+  box-shadow: 0 2px 8px 0 rgba(255,106,61,0.09);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.button:hover {
+  background: linear-gradient(90deg, #ff6a3d 0%, #eebc1d 100%);
+  color: #fff;
+}
+
+.input {
+  background: #232946;
+  color: #eaeaea;
+  border: 1px solid #2a2a2e;
+  border-radius: 0.8rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}

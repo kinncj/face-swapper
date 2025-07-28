@@ -1,0 +1,87 @@
+openapi: 3.0.3
+info:
+  title: Face Swap Web API
+  description: API for photorealistic face swapping using InsightFace/inswapper.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5555
+paths:
+  /detect-faces:
+    post:
+      summary: Detect faces in an uploaded image
+      description: Detects faces in the uploaded image and returns bounding boxes and thumbnails.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: Target image file
+      responses:
+        '200':
+          description: List of detected faces
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  faces:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        index:
+                          type: integer
+                        box:
+                          type: array
+                          items:
+                            type: integer
+                          minItems: 4
+                          maxItems: 4
+                        face_b64:
+                          type: string
+                          description: Base64-encoded thumbnail of the detected face
+        '400':
+          description: Invalid image or no faces detected
+  /swap:
+    post:
+      summary: Swap selected faces in the target image
+      description: Swaps selected faces in the target image using provided source images.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                target:
+                  type: string
+                  format: binary
+                  description: Target image file
+                source[]:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                  description: Replacement face image(s)
+                face_index:
+                  type: array
+                  items:
+                    type: integer
+                  description: Index(es) of the face(s) to swap
+      responses:
+        '200':
+          description: JPEG image with swapped faces
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request or missing files
+        '500':
+          description: Face swap failed
